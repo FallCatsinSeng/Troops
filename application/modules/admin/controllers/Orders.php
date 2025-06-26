@@ -22,7 +22,9 @@ class Orders extends CI_Controller
             $params['title'] = 'Cari "' . $search . '"';
         } else {
             $params['title'] = 'Kelola Order';
-        }
+		}
+
+		$this->check_shipping_status(true);
 
         $config['base_url'] = site_url('admin/orders/index');
         $config['total_rows'] = $this->order->count_all_orders();
@@ -294,10 +296,10 @@ class Orders extends CI_Controller
         */
     }
 
-    public function check_shipping_status()
+    public function check_shipping_status($force = false)
     {
         // Hanya terima request AJAX
-        if (!$this->input->is_ajax_request()) {
+        if ($force === false && !$this->input->is_ajax_request()) {
             redirect('admin/orders');
             return;
         }
@@ -329,7 +331,11 @@ class Orders extends CI_Controller
                     $updated++;
                 }
             }
-        }
+		}
+
+		if($force === true) {
+			return true;
+		}
 
         // Return response dalam format JSON
         $this->output
