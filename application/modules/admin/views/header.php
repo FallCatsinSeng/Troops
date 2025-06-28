@@ -53,11 +53,11 @@ $query = $this->input->get('search_query');
                             </a>
                         </li>
                         <li class="nav-item">
-    <a class="nav-link" href="<?php echo site_url('admin/videos'); ?>">
-        <i class="ni ni-bullet-list-67 text-info"></i>
-        <span class="nav-link-text">Tambah Video</span>
-    </a>
-</li>
+                    <a class="nav-link" href="<?php echo site_url('admin/videos'); ?>">
+                        <i class="ni ni-bullet-list-67 text-info"></i>
+                        <span class="nav-link-text">Tambah Video</span>
+                    </a>
+                </li>
 
 
                         <li class="nav-item">

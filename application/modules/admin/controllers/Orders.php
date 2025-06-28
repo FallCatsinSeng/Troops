@@ -199,59 +199,9 @@ class Orders extends CI_Controller
         echo "Proses selesai.\n";
     }
 
-    /**
-     * Helper privat untuk memanggil API Biteship menggunakan cURL.
-     */
-    // private function _call_biteship_api($tracking_number, $courier)
-    // {
-    //     // GANTI DENGAN API KEY BITESHIp Anda
-    //     // Sebaiknya simpan di config atau database
-    //     $api_key = 'YOUR_BITESHIP_API_KEY';
-
-    //     $curl = curl_init();
-    //     $endpoint = "https://api.biteship.com/v1/trackings/$tracking_number/couriers/$courier";
-
-    //     curl_setopt_array($curl, [
-    //         CURLOPT_URL => $endpoint,
-    //         CURLOPT_RETURNTRANSFER => true,
-    //         CURLOPT_ENCODING => "",
-    //         CURLOPT_MAXREDIRS => 10,
-    //         CURLOPT_TIMEOUT => 30,
-    //         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-    //         CURLOPT_CUSTOMREQUEST => "GET",
-    //         CURLOPT_HTTPHEADER => [
-    //             "Authorization: $api_key"
-    //         ],
-    //     ]);
-
-    //     $response = curl_exec($curl);
-    //     $err = curl_error($curl);
-    //     curl_close($curl);
-
-    //     if ($err) {
-    //         log_message('error', "cURL Error #:" . $err);
-    //         return null;
-    //     }
-
-    //     return json_decode($response);
-    // }
-
     public function _call_biteship_api($tracking_number, $courier)
     {
-        // Mock response untuk testing
-        return (object)[
-            'success' => true,
-            'history' => [
-                (object)[
-                    'status' => 'delivered',
-                    'description' => 'Paket telah diterima',
-                    'timestamp' => date('Y-m-d H:i:s')
-                ]
-            ]
-        ];
-
         // Uncomment kode di bawah ini setelah API key Biteship sudah benar
-        /*
         $biteship_api_key = $this->config->item('biteship_api_key');
         
         if (empty($biteship_api_key)) {
@@ -269,7 +219,7 @@ class Orders extends CI_Controller
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "GET",
             CURLOPT_HTTPHEADER => array(
-                "Authorization: Bearer " . $biteship_api_key,
+                "Authorization: " . $biteship_api_key,
                 "Content-Type: application/json"
             ),
         ));
@@ -291,7 +241,6 @@ class Orders extends CI_Controller
         }
 
         return $result;
-        */
     }
 
     public function check_shipping_status()

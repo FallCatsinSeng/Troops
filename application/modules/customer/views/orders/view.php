@@ -212,13 +212,15 @@ label, h1, h2, h3, h4, h5, h6, .breadcrumb, .breadcrumb a, .content-header, .con
                         <h5 class="card-heading">Tindakan</h5>
                     </div>
                     <div class="card-body">
-                        <div class="text-center actionRow">
+                        <div class="text-center actionRow" style="color: white;">
                             <?php if ($data->payment_method == 1) : ?>
                                 <?php if ($data->order_status == 1) : ?>
                                     <p>Order menunggu pembayaran</p>
                                     <p>Sudah mengirim pembayaran? Mari konfirmasi pembayaran.</p>
                                     <a href="<?php echo site_url('customer/payments/confirm?order='. $data->id); ?>" class="btn btn-success">Konfirmasi Pembayaran</a>
                                     <br>
+                                    <br>
+
                                     <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#cancelModal">Batalkan</a>
                                 <?php elseif ($data->order_status == 5) : ?>
                                     <p>Order dibatalkan</p>

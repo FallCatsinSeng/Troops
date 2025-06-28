@@ -100,7 +100,7 @@ select.form-control option {
                             <label for="price" class="form-control-label">Jumlah Transfer:</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text">Rp</span>
+                                    <span class="input-group-text"  style="background-color: #000; opacity: 75%;">Rp</span>
                                 </div>
                                 <?php
                                 $order_total = '';

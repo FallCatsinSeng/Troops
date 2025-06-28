@@ -194,7 +194,6 @@ class Products extends CI_Controller {
             $product['name'] = $name;
             $product['description'] = $desc;
             $product['price'] = $price;
-            $product['current_discount'] = $this->input->post('price_discount');
             $product['stock'] = $stock;
             $product['product_unit'] = $unit;
             $product['picture_name'] = implode(',', $uploaded_files);

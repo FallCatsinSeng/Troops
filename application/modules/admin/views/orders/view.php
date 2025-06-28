@@ -68,16 +68,16 @@ defined('BASEPATH') or exit('No direct script access allowed');
               <input type="hidden" name="order" value="<?php echo $data->id; ?>">
               <div class="row">
                 <div class="col-md-10">
-                  <div class="form-group">
+                  <div class="form-group" >
                     <?php if ($data->payment_method == 1) : ?>
-                      <select class="form-control" id="status" name="status" style="opacity: 0; position: absolute;">
+                      <select class="form-control" id="status" name="status" style="opacity: 0; position: absolute;" disabled>
                         <option value="2" <?php echo ($data->order_status == 2) ? ' selected' : ''; ?>>Dalam proses</option>
                         <option value="3" <?php echo ($data->order_status == 3) ? ' selected' : ''; ?>>Dalam pengiriman</option>
                         <option value="4" <?php echo ($data->order_status == 4) ? ' selected' : ''; ?>>Selesai</option>
                         <option value="5" <?php echo ($data->order_status == 5) ? ' selected' : ''; ?>>Batalkan</option>
                       </select>
                     <?php else : ?>
-                      <select class="form-control" id="status" name="status">
+                      <select class="form-control" id="status" name="status" disabled>
                         <option value="1" <?php echo ($data->order_status == 1) ? ' selected' : ''; ?>>Dalam proses</option>
                         <option value="2" <?php echo ($data->order_status == 2) ? ' selected' : ''; ?>>Dalam pengiriman</option>
                         <option value="3" <?php echo ($data->order_status == 3) ? ' selected' : ''; ?>>Selesai</option>
@@ -87,7 +87,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                   </div>
                   
                   <div class="form-group">
-                    <select class="form-control" id="courier" name="courier">
+                    <select class="form-control" id="courier" name="courier" disabled>
                       <option value="">Pilih Kurir</option>
                       <option value="gojek" <?php echo ($data->courier == 'gojek') ? ' selected' : ''; ?>>Gojek</option>
                       <option value="grab" <?php echo ($data->courier == 'grab') ? ' selected' : ''; ?>>Grab</option>
