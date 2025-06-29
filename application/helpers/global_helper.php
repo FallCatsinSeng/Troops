@@ -88,26 +88,29 @@ if (!function_exists('get_user_name')) {
 }
 
 if (!function_exists('get_user_image')) {
-    function get_user_image()
+    function get_user_image($user = null)
     {
         $CI = init();
         $id = get_current_user_id();
 
-        $user = $CI->db->query("
-            SELECT u.*, c.*
-            FROM users u
-            JOIN customers c
-                ON c.user_id = u.id
-            WHERE u.id = '$id'
-        ")->row();
+        if (!$user) {
+            $user = $CI->db->query("
+                SELECT u.*, c.*
+                FROM users u
+                JOIN customers c
+                    ON c.user_id = u.id
+                WHERE u.id = '$id'
+            ")->row();
+        }
 
-        $picture = $user->profile_picture;
-        $file = './assets/uploads/users/' . $picture;
+        $picture = isset($user->profile_picture) ? $user->profile_picture : '';
+        $file = FCPATH . 'assets/uploads/users/' . $picture;
 
-        if (!file_exists($file))
+        if ($picture && file_exists($file)) {
             $picture_name = $picture;
-        else
-            $picture_name = 'admin.png';
+        } else {
+            $picture_name = 'admin2.png';
+        }
 
         return base_url('assets/uploads/users/' . $picture_name);
     }
