@@ -7,3 +7,7 @@
 <h2>Admin Panel</h2>
 <img width="1200" alt="2-admin-panel" src="https://github.com/bforbilly24/ecommerce_with_codeigniter/blob/main/images/2-admin-panel.png">
 
+
+## Jalankan Cron
+
+php index.php cron/Order_status_update update

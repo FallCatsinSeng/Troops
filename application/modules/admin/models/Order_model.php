@@ -179,7 +179,7 @@ class Order_model extends CI_Model
     {
         $this->db->where('tracking_number IS NOT NULL', NULL, FALSE);
         $this->db->where('tracking_number !=', '');
-        $this->db->where_in('order_status', array(2, 3)); // Status dalam proses atau dalam pengiriman
+        $this->db->where_in('order_status', array(1, 2, 3)); // Status dalam proses atau dalam pengiriman
         
         return $this->db->get('orders')->result();
     }
