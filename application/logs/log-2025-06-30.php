@@ -4978,3 +4978,299 @@ DEBUG - 2025-06-30 20:32:36 --> File loaded: C:\First\htdocs\Troops\application\
 DEBUG - 2025-06-30 20:32:36 --> File loaded: C:\First\htdocs\Troops\application\modules/admin/views/footer.php
 INFO - 2025-06-30 20:32:36 --> Final output sent to browser
 DEBUG - 2025-06-30 20:32:36 --> Total execution time: 0.2556
+ERROR - 2025-06-30 21:01:56 --> Could not find the specified $config['composer_autoload'] path: vendor/autoload.php
+INFO - 2025-06-30 21:01:56 --> Config Class Initialized
+INFO - 2025-06-30 21:01:56 --> Hooks Class Initialized
+DEBUG - 2025-06-30 21:01:56 --> UTF-8 Support Enabled
+INFO - 2025-06-30 21:01:56 --> Utf8 Class Initialized
+INFO - 2025-06-30 21:01:56 --> URI Class Initialized
+INFO - 2025-06-30 21:01:56 --> Router Class Initialized
+INFO - 2025-06-30 21:01:56 --> Output Class Initialized
+INFO - 2025-06-30 21:01:56 --> Security Class Initialized
+DEBUG - 2025-06-30 21:01:56 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-06-30 21:01:56 --> Input Class Initialized
+INFO - 2025-06-30 21:01:56 --> Language Class Initialized
+INFO - 2025-06-30 21:01:56 --> Language Class Initialized
+INFO - 2025-06-30 21:01:56 --> Config Class Initialized
+INFO - 2025-06-30 21:01:56 --> Loader Class Initialized
+DEBUG - 2025-06-30 21:01:56 --> Config file loaded: C:\First\htdocs\Troops\application\config/biteship.php
+INFO - 2025-06-30 21:01:56 --> Helper loaded: url_helper
+INFO - 2025-06-30 21:01:56 --> Helper loaded: global_helper
+INFO - 2025-06-30 21:01:56 --> Helper loaded: themes_helper
+INFO - 2025-06-30 21:01:56 --> Helper loaded: session_helper
+INFO - 2025-06-30 21:01:56 --> Database Driver Class Initialized
+INFO - 2025-06-30 21:01:56 --> Session: Class initialized using 'files' driver.
+INFO - 2025-06-30 21:01:56 --> Controller Class Initialized
+DEBUG - 2025-06-30 21:01:56 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2025-06-30 21:01:56 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2025-06-30 21:01:56 --> Encryption Class Initialized
+INFO - 2025-06-30 21:01:56 --> Helper loaded: cookie_helper
+DEBUG - 2025-06-30 21:01:56 --> File loaded: C:\First\htdocs\Troops\application\modules/admin/models/Product_model.php
+DEBUG - 2025-06-30 21:01:56 --> File loaded: C:\First\htdocs\Troops\application\modules/admin/models/Customer_model.php
+DEBUG - 2025-06-30 21:01:56 --> File loaded: C:\First\htdocs\Troops\application\modules/admin/models/Order_model.php
+DEBUG - 2025-06-30 21:01:56 --> File loaded: C:\First\htdocs\Troops\application\modules/admin/models/Payment_model.php
+DEBUG - 2025-06-30 21:01:56 --> File loaded: C:\First\htdocs\Troops\application\modules/admin/views/header.php
+DEBUG - 2025-06-30 21:01:56 --> File loaded: C:\First\htdocs\Troops\application\modules/admin/views/overview.php
+DEBUG - 2025-06-30 21:01:56 --> File loaded: C:\First\htdocs\Troops\application\modules/admin/views/footer.php
+INFO - 2025-06-30 21:01:56 --> Final output sent to browser
+DEBUG - 2025-06-30 21:01:56 --> Total execution time: 0.4214
+ERROR - 2025-06-30 21:02:20 --> Could not find the specified $config['composer_autoload'] path: vendor/autoload.php
+INFO - 2025-06-30 21:02:20 --> Config Class Initialized
+INFO - 2025-06-30 21:02:20 --> Hooks Class Initialized
+DEBUG - 2025-06-30 21:02:20 --> UTF-8 Support Enabled
+INFO - 2025-06-30 21:02:20 --> Utf8 Class Initialized
+INFO - 2025-06-30 21:02:20 --> URI Class Initialized
+INFO - 2025-06-30 21:02:20 --> Router Class Initialized
+INFO - 2025-06-30 21:02:20 --> Output Class Initialized
+INFO - 2025-06-30 21:02:20 --> Security Class Initialized
+DEBUG - 2025-06-30 21:02:20 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-06-30 21:02:20 --> Input Class Initialized
+INFO - 2025-06-30 21:02:20 --> Language Class Initialized
+INFO - 2025-06-30 21:02:20 --> Language Class Initialized
+INFO - 2025-06-30 21:02:20 --> Config Class Initialized
+INFO - 2025-06-30 21:02:20 --> Loader Class Initialized
+DEBUG - 2025-06-30 21:02:20 --> Config file loaded: C:\First\htdocs\Troops\application\config/biteship.php
+INFO - 2025-06-30 21:02:20 --> Helper loaded: url_helper
+INFO - 2025-06-30 21:02:20 --> Helper loaded: global_helper
+INFO - 2025-06-30 21:02:20 --> Helper loaded: themes_helper
+INFO - 2025-06-30 21:02:20 --> Helper loaded: session_helper
+INFO - 2025-06-30 21:02:20 --> Database Driver Class Initialized
+INFO - 2025-06-30 21:02:20 --> Session: Class initialized using 'files' driver.
+INFO - 2025-06-30 21:02:20 --> Controller Class Initialized
+DEBUG - 2025-06-30 21:02:20 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2025-06-30 21:02:20 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2025-06-30 21:02:20 --> Encryption Class Initialized
+INFO - 2025-06-30 21:02:20 --> Helper loaded: cookie_helper
+DEBUG - 2025-06-30 21:02:20 --> File loaded: C:\First\htdocs\Troops\application\modules/admin/models/Product_model.php
+DEBUG - 2025-06-30 21:02:20 --> File loaded: C:\First\htdocs\Troops\application\modules/admin/models/Customer_model.php
+DEBUG - 2025-06-30 21:02:20 --> File loaded: C:\First\htdocs\Troops\application\modules/admin/models/Order_model.php
+DEBUG - 2025-06-30 21:02:20 --> File loaded: C:\First\htdocs\Troops\application\modules/admin/models/Payment_model.php
+DEBUG - 2025-06-30 21:02:20 --> File loaded: C:\First\htdocs\Troops\application\modules/admin/views/header.php
+DEBUG - 2025-06-30 21:02:20 --> File loaded: C:\First\htdocs\Troops\application\modules/admin/views/overview.php
+DEBUG - 2025-06-30 21:02:20 --> File loaded: C:\First\htdocs\Troops\application\modules/admin/views/footer.php
+INFO - 2025-06-30 21:02:20 --> Final output sent to browser
+DEBUG - 2025-06-30 21:02:20 --> Total execution time: 0.1278
+ERROR - 2025-06-30 21:02:21 --> Could not find the specified $config['composer_autoload'] path: vendor/autoload.php
+INFO - 2025-06-30 21:02:21 --> Config Class Initialized
+INFO - 2025-06-30 21:02:21 --> Hooks Class Initialized
+DEBUG - 2025-06-30 21:02:21 --> UTF-8 Support Enabled
+INFO - 2025-06-30 21:02:21 --> Utf8 Class Initialized
+INFO - 2025-06-30 21:02:21 --> URI Class Initialized
+INFO - 2025-06-30 21:02:21 --> Router Class Initialized
+INFO - 2025-06-30 21:02:21 --> Output Class Initialized
+INFO - 2025-06-30 21:02:21 --> Security Class Initialized
+DEBUG - 2025-06-30 21:02:21 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-06-30 21:02:21 --> Input Class Initialized
+INFO - 2025-06-30 21:02:21 --> Language Class Initialized
+INFO - 2025-06-30 21:02:21 --> Language Class Initialized
+INFO - 2025-06-30 21:02:21 --> Config Class Initialized
+INFO - 2025-06-30 21:02:21 --> Loader Class Initialized
+DEBUG - 2025-06-30 21:02:21 --> Config file loaded: C:\First\htdocs\Troops\application\config/biteship.php
+INFO - 2025-06-30 21:02:21 --> Helper loaded: url_helper
+INFO - 2025-06-30 21:02:21 --> Helper loaded: global_helper
+INFO - 2025-06-30 21:02:21 --> Helper loaded: themes_helper
+INFO - 2025-06-30 21:02:21 --> Helper loaded: session_helper
+INFO - 2025-06-30 21:02:21 --> Database Driver Class Initialized
+INFO - 2025-06-30 21:02:21 --> Session: Class initialized using 'files' driver.
+INFO - 2025-06-30 21:02:21 --> Controller Class Initialized
+DEBUG - 2025-06-30 21:02:21 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2025-06-30 21:02:21 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2025-06-30 21:02:21 --> Encryption Class Initialized
+INFO - 2025-06-30 21:02:21 --> Helper loaded: cookie_helper
+DEBUG - 2025-06-30 21:02:21 --> File loaded: C:\First\htdocs\Troops\application\modules/admin/models/Order_model.php
+INFO - 2025-06-30 21:02:23 --> Final output sent to browser
+DEBUG - 2025-06-30 21:02:23 --> Total execution time: 1.7269
+ERROR - 2025-06-30 21:02:23 --> Could not find the specified $config['composer_autoload'] path: vendor/autoload.php
+INFO - 2025-06-30 21:02:23 --> Config Class Initialized
+INFO - 2025-06-30 21:02:23 --> Hooks Class Initialized
+DEBUG - 2025-06-30 21:02:23 --> UTF-8 Support Enabled
+INFO - 2025-06-30 21:02:23 --> Utf8 Class Initialized
+INFO - 2025-06-30 21:02:23 --> URI Class Initialized
+INFO - 2025-06-30 21:02:23 --> Router Class Initialized
+INFO - 2025-06-30 21:02:23 --> Output Class Initialized
+INFO - 2025-06-30 21:02:23 --> Security Class Initialized
+DEBUG - 2025-06-30 21:02:23 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-06-30 21:02:23 --> Input Class Initialized
+INFO - 2025-06-30 21:02:23 --> Language Class Initialized
+INFO - 2025-06-30 21:02:23 --> Language Class Initialized
+INFO - 2025-06-30 21:02:23 --> Config Class Initialized
+INFO - 2025-06-30 21:02:23 --> Loader Class Initialized
+DEBUG - 2025-06-30 21:02:23 --> Config file loaded: C:\First\htdocs\Troops\application\config/biteship.php
+INFO - 2025-06-30 21:02:23 --> Helper loaded: url_helper
+INFO - 2025-06-30 21:02:23 --> Helper loaded: global_helper
+INFO - 2025-06-30 21:02:23 --> Helper loaded: themes_helper
+INFO - 2025-06-30 21:02:23 --> Helper loaded: session_helper
+INFO - 2025-06-30 21:02:23 --> Database Driver Class Initialized
+INFO - 2025-06-30 21:02:23 --> Session: Class initialized using 'files' driver.
+INFO - 2025-06-30 21:02:23 --> Controller Class Initialized
+DEBUG - 2025-06-30 21:02:23 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2025-06-30 21:02:23 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2025-06-30 21:02:23 --> Encryption Class Initialized
+INFO - 2025-06-30 21:02:23 --> Helper loaded: cookie_helper
+DEBUG - 2025-06-30 21:02:23 --> File loaded: C:\First\htdocs\Troops\application\modules/admin/models/Order_model.php
+INFO - 2025-06-30 21:02:23 --> Language file loaded: language/english/pagination_lang.php
+INFO - 2025-06-30 21:02:23 --> Pagination Class Initialized
+DEBUG - 2025-06-30 21:02:23 --> File loaded: C:\First\htdocs\Troops\application\modules/admin/views/header.php
+DEBUG - 2025-06-30 21:02:23 --> File loaded: C:\First\htdocs\Troops\application\modules/admin/views/orders/orders.php
+DEBUG - 2025-06-30 21:02:23 --> File loaded: C:\First\htdocs\Troops\application\modules/admin/views/footer.php
+INFO - 2025-06-30 21:02:23 --> Final output sent to browser
+DEBUG - 2025-06-30 21:02:23 --> Total execution time: 0.0912
+ERROR - 2025-06-30 21:02:26 --> Could not find the specified $config['composer_autoload'] path: vendor/autoload.php
+INFO - 2025-06-30 21:02:26 --> Config Class Initialized
+INFO - 2025-06-30 21:02:26 --> Hooks Class Initialized
+DEBUG - 2025-06-30 21:02:26 --> UTF-8 Support Enabled
+INFO - 2025-06-30 21:02:26 --> Utf8 Class Initialized
+INFO - 2025-06-30 21:02:26 --> URI Class Initialized
+INFO - 2025-06-30 21:02:26 --> Router Class Initialized
+INFO - 2025-06-30 21:02:26 --> Output Class Initialized
+INFO - 2025-06-30 21:02:26 --> Security Class Initialized
+DEBUG - 2025-06-30 21:02:26 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-06-30 21:02:26 --> Input Class Initialized
+INFO - 2025-06-30 21:02:26 --> Language Class Initialized
+INFO - 2025-06-30 21:02:26 --> Language Class Initialized
+INFO - 2025-06-30 21:02:26 --> Config Class Initialized
+INFO - 2025-06-30 21:02:26 --> Loader Class Initialized
+DEBUG - 2025-06-30 21:02:26 --> Config file loaded: C:\First\htdocs\Troops\application\config/biteship.php
+INFO - 2025-06-30 21:02:26 --> Helper loaded: url_helper
+INFO - 2025-06-30 21:02:26 --> Helper loaded: global_helper
+INFO - 2025-06-30 21:02:26 --> Helper loaded: themes_helper
+INFO - 2025-06-30 21:02:26 --> Helper loaded: session_helper
+INFO - 2025-06-30 21:02:26 --> Database Driver Class Initialized
+INFO - 2025-06-30 21:02:26 --> Session: Class initialized using 'files' driver.
+INFO - 2025-06-30 21:02:26 --> Controller Class Initialized
+DEBUG - 2025-06-30 21:02:26 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2025-06-30 21:02:26 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2025-06-30 21:02:26 --> Encryption Class Initialized
+INFO - 2025-06-30 21:02:26 --> Helper loaded: cookie_helper
+DEBUG - 2025-06-30 21:02:26 --> File loaded: C:\First\htdocs\Troops\application\modules/admin/models/Order_model.php
+DEBUG - 2025-06-30 21:02:26 --> File loaded: C:\First\htdocs\Troops\application\modules/admin/views/header.php
+DEBUG - 2025-06-30 21:02:26 --> File loaded: C:\First\htdocs\Troops\application\modules/admin/views/orders/view.php
+DEBUG - 2025-06-30 21:02:26 --> File loaded: C:\First\htdocs\Troops\application\modules/admin/views/footer.php
+INFO - 2025-06-30 21:02:26 --> Final output sent to browser
+DEBUG - 2025-06-30 21:02:26 --> Total execution time: 0.1005
+ERROR - 2025-06-30 21:02:28 --> Could not find the specified $config['composer_autoload'] path: vendor/autoload.php
+INFO - 2025-06-30 21:02:28 --> Config Class Initialized
+INFO - 2025-06-30 21:02:28 --> Hooks Class Initialized
+DEBUG - 2025-06-30 21:02:28 --> UTF-8 Support Enabled
+INFO - 2025-06-30 21:02:28 --> Utf8 Class Initialized
+INFO - 2025-06-30 21:02:28 --> URI Class Initialized
+INFO - 2025-06-30 21:02:28 --> Router Class Initialized
+INFO - 2025-06-30 21:02:28 --> Output Class Initialized
+INFO - 2025-06-30 21:02:28 --> Security Class Initialized
+DEBUG - 2025-06-30 21:02:28 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-06-30 21:02:28 --> Input Class Initialized
+INFO - 2025-06-30 21:02:28 --> Language Class Initialized
+INFO - 2025-06-30 21:02:28 --> Language Class Initialized
+INFO - 2025-06-30 21:02:28 --> Config Class Initialized
+INFO - 2025-06-30 21:02:28 --> Loader Class Initialized
+DEBUG - 2025-06-30 21:02:28 --> Config file loaded: C:\First\htdocs\Troops\application\config/biteship.php
+INFO - 2025-06-30 21:02:28 --> Helper loaded: url_helper
+INFO - 2025-06-30 21:02:28 --> Helper loaded: global_helper
+INFO - 2025-06-30 21:02:28 --> Helper loaded: themes_helper
+INFO - 2025-06-30 21:02:28 --> Helper loaded: session_helper
+INFO - 2025-06-30 21:02:28 --> Database Driver Class Initialized
+INFO - 2025-06-30 21:02:28 --> Session: Class initialized using 'files' driver.
+INFO - 2025-06-30 21:02:28 --> Controller Class Initialized
+DEBUG - 2025-06-30 21:02:28 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2025-06-30 21:02:28 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2025-06-30 21:02:28 --> Encryption Class Initialized
+INFO - 2025-06-30 21:02:28 --> Helper loaded: cookie_helper
+DEBUG - 2025-06-30 21:02:28 --> File loaded: C:\First\htdocs\Troops\application\modules/admin/models/Order_model.php
+DEBUG - 2025-06-30 21:02:28 --> File loaded: C:\First\htdocs\Troops\application\modules/admin/views/orders/pdf.php
+ERROR - 2025-06-30 21:02:30 --> Severity: error --> Exception: The PHP GD extension is required, but is not installed. C:\First\htdocs\Troops\application\libraries\dompdf\vendor\dompdf\dompdf\lib\Cpdf.php 5813
+ERROR - 2025-06-30 21:02:30 --> Could not find the specified $config['composer_autoload'] path: vendor/autoload.php
+INFO - 2025-06-30 21:02:30 --> Config Class Initialized
+INFO - 2025-06-30 21:02:30 --> Hooks Class Initialized
+DEBUG - 2025-06-30 21:02:30 --> UTF-8 Support Enabled
+INFO - 2025-06-30 21:02:30 --> Utf8 Class Initialized
+INFO - 2025-06-30 21:02:30 --> URI Class Initialized
+INFO - 2025-06-30 21:02:30 --> Router Class Initialized
+INFO - 2025-06-30 21:02:30 --> Output Class Initialized
+INFO - 2025-06-30 21:02:30 --> Security Class Initialized
+DEBUG - 2025-06-30 21:02:30 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-06-30 21:02:30 --> Input Class Initialized
+INFO - 2025-06-30 21:02:30 --> Language Class Initialized
+INFO - 2025-06-30 21:02:30 --> Language Class Initialized
+INFO - 2025-06-30 21:02:30 --> Config Class Initialized
+INFO - 2025-06-30 21:02:30 --> Loader Class Initialized
+DEBUG - 2025-06-30 21:02:30 --> Config file loaded: C:\First\htdocs\Troops\application\config/biteship.php
+INFO - 2025-06-30 21:02:30 --> Helper loaded: url_helper
+INFO - 2025-06-30 21:02:30 --> Helper loaded: global_helper
+INFO - 2025-06-30 21:02:30 --> Helper loaded: themes_helper
+INFO - 2025-06-30 21:02:30 --> Helper loaded: session_helper
+INFO - 2025-06-30 21:02:30 --> Database Driver Class Initialized
+INFO - 2025-06-30 21:02:30 --> Session: Class initialized using 'files' driver.
+INFO - 2025-06-30 21:02:30 --> Controller Class Initialized
+DEBUG - 2025-06-30 21:02:30 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2025-06-30 21:02:30 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2025-06-30 21:02:30 --> Encryption Class Initialized
+INFO - 2025-06-30 21:02:30 --> Helper loaded: cookie_helper
+DEBUG - 2025-06-30 21:02:30 --> File loaded: C:\First\htdocs\Troops\application\modules/admin/models/Order_model.php
+DEBUG - 2025-06-30 21:02:30 --> File loaded: C:\First\htdocs\Troops\application\modules/admin/views/orders/pdf.php
+ERROR - 2025-06-30 21:02:30 --> Severity: error --> Exception: The PHP GD extension is required, but is not installed. C:\First\htdocs\Troops\application\libraries\dompdf\vendor\dompdf\dompdf\lib\Cpdf.php 5813
+ERROR - 2025-06-30 21:02:34 --> Could not find the specified $config['composer_autoload'] path: vendor/autoload.php
+INFO - 2025-06-30 21:02:34 --> Config Class Initialized
+INFO - 2025-06-30 21:02:34 --> Hooks Class Initialized
+DEBUG - 2025-06-30 21:02:34 --> UTF-8 Support Enabled
+INFO - 2025-06-30 21:02:34 --> Utf8 Class Initialized
+INFO - 2025-06-30 21:02:34 --> URI Class Initialized
+INFO - 2025-06-30 21:02:34 --> Router Class Initialized
+INFO - 2025-06-30 21:02:34 --> Output Class Initialized
+INFO - 2025-06-30 21:02:34 --> Security Class Initialized
+DEBUG - 2025-06-30 21:02:34 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-06-30 21:02:34 --> Input Class Initialized
+INFO - 2025-06-30 21:02:34 --> Language Class Initialized
+INFO - 2025-06-30 21:02:34 --> Language Class Initialized
+INFO - 2025-06-30 21:02:34 --> Config Class Initialized
+INFO - 2025-06-30 21:02:34 --> Loader Class Initialized
+DEBUG - 2025-06-30 21:02:34 --> Config file loaded: C:\First\htdocs\Troops\application\config/biteship.php
+INFO - 2025-06-30 21:02:34 --> Helper loaded: url_helper
+INFO - 2025-06-30 21:02:34 --> Helper loaded: global_helper
+INFO - 2025-06-30 21:02:34 --> Helper loaded: themes_helper
+INFO - 2025-06-30 21:02:34 --> Helper loaded: session_helper
+INFO - 2025-06-30 21:02:34 --> Database Driver Class Initialized
+INFO - 2025-06-30 21:02:34 --> Session: Class initialized using 'files' driver.
+INFO - 2025-06-30 21:02:34 --> Controller Class Initialized
+DEBUG - 2025-06-30 21:02:34 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2025-06-30 21:02:34 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2025-06-30 21:02:34 --> Encryption Class Initialized
+INFO - 2025-06-30 21:02:34 --> Helper loaded: cookie_helper
+DEBUG - 2025-06-30 21:02:34 --> File loaded: C:\First\htdocs\Troops\application\modules/admin/models/Order_model.php
+DEBUG - 2025-06-30 21:02:34 --> File loaded: C:\First\htdocs\Troops\application\modules/admin/views/header.php
+DEBUG - 2025-06-30 21:02:34 --> File loaded: C:\First\htdocs\Troops\application\modules/admin/views/orders/view.php
+DEBUG - 2025-06-30 21:02:34 --> File loaded: C:\First\htdocs\Troops\application\modules/admin/views/footer.php
+INFO - 2025-06-30 21:02:34 --> Final output sent to browser
+DEBUG - 2025-06-30 21:02:34 --> Total execution time: 0.0747
+ERROR - 2025-06-30 21:05:14 --> Could not find the specified $config['composer_autoload'] path: vendor/autoload.php
+INFO - 2025-06-30 21:05:14 --> Config Class Initialized
+INFO - 2025-06-30 21:05:14 --> Hooks Class Initialized
+DEBUG - 2025-06-30 21:05:14 --> UTF-8 Support Enabled
+INFO - 2025-06-30 21:05:14 --> Utf8 Class Initialized
+INFO - 2025-06-30 21:05:14 --> URI Class Initialized
+INFO - 2025-06-30 21:05:14 --> Router Class Initialized
+INFO - 2025-06-30 21:05:14 --> Output Class Initialized
+INFO - 2025-06-30 21:05:14 --> Security Class Initialized
+DEBUG - 2025-06-30 21:05:14 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-06-30 21:05:14 --> Input Class Initialized
+INFO - 2025-06-30 21:05:14 --> Language Class Initialized
+INFO - 2025-06-30 21:05:14 --> Language Class Initialized
+INFO - 2025-06-30 21:05:14 --> Config Class Initialized
+INFO - 2025-06-30 21:05:14 --> Loader Class Initialized
+DEBUG - 2025-06-30 21:05:14 --> Config file loaded: C:\First\htdocs\Troops\application\config/biteship.php
+INFO - 2025-06-30 21:05:14 --> Helper loaded: url_helper
+INFO - 2025-06-30 21:05:14 --> Helper loaded: global_helper
+INFO - 2025-06-30 21:05:14 --> Helper loaded: themes_helper
+INFO - 2025-06-30 21:05:14 --> Helper loaded: session_helper
+INFO - 2025-06-30 21:05:14 --> Database Driver Class Initialized
+INFO - 2025-06-30 21:05:14 --> Session: Class initialized using 'files' driver.
+INFO - 2025-06-30 21:05:14 --> Controller Class Initialized
+DEBUG - 2025-06-30 21:05:14 --> Encryption: Auto-configured driver 'openssl'.
+INFO - 2025-06-30 21:05:14 --> Encryption: OpenSSL initialized with method AES-128-CBC.
+INFO - 2025-06-30 21:05:14 --> Encryption Class Initialized
+INFO - 2025-06-30 21:05:14 --> Helper loaded: cookie_helper
+DEBUG - 2025-06-30 21:05:14 --> File loaded: C:\First\htdocs\Troops\application\modules/admin/models/Order_model.php
+DEBUG - 2025-06-30 21:05:14 --> File loaded: C:\First\htdocs\Troops\application\modules/admin/views/header.php
+DEBUG - 2025-06-30 21:05:14 --> File loaded: C:\First\htdocs\Troops\application\modules/admin/views/orders/view.php
+DEBUG - 2025-06-30 21:05:14 --> File loaded: C:\First\htdocs\Troops\application\modules/admin/views/footer.php
+INFO - 2025-06-30 21:05:15 --> Final output sent to browser
+DEBUG - 2025-06-30 21:05:15 --> Total execution time: 0.2216
