@@ -30,15 +30,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
             margin-bottom: 30px;
         }
 
-        #logo {
-            float: left;
-            margin-right: 20px;
-        }
-
-        #logo img {
-            width: 90px;
-        }
-
         #company-details {
             float: left;
             padding-top: 5px; /* Sesuaikan agar sejajar dengan alamat tujuan */
@@ -145,21 +136,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 <body>
     <header class="clearfix">
-        <div id="logo">
-            <?php
-            $path = FCPATH . 'assets/uploads/sites/logopdf.png';
-            if (file_exists($path)) {
-                $type = pathinfo($path, PATHINFO_EXTENSION);
-                $data = file_get_contents($path);
-                $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
-                echo '<img src="' . $base64 . '">';
-            }
-            ?>
-        </div>
         <div id="company-details">
             <div><b>Putra Anggrek (Purwokerto)</b></div>
             <div><?php echo get_formatted_date(date('Y-m-d H:i:s')); ?></div>
-            <div style="border-bottom: 1px solid #000; padding-top:2px; width: 150%;">&nbsp;</div>
+            <div style="border-bottom: 1px solid #000; padding-top:2px; width: 100%;">&nbsp;</div>
         </div>
         <div id="invoice-to">
             <?php if (isset($delivery_data->customer->name)) : ?>
@@ -176,12 +156,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <main>
         <h1 class="title">Draft Invoice</h1>
         <div class="source">
-            <b>Source:</b><br>
+            Source:<br>
             <?php echo $order_data->order_number; ?>
         </div>
         <div class="shipping-details" style="margin-bottom: 20px;">
             <?php if (isset($order_data->courier) && !empty($order_data->courier)) : ?>
-                <div><b>Kurir:</b> <?php echo strtoupper($order_data->courier); ?></div>
+                <div>Kurir: <?php echo strtoupper($order_data->courier); ?></div>
             <?php endif; ?>
             <?php if (isset($order_data->delivered_date) && !empty($order_data->delivered_date)) : ?>
                 <div><b>Tanggal Diterima:</b> <?php echo get_formatted_date($order_data->delivered_date); ?></div>
