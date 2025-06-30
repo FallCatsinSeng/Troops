@@ -40,7 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <img alt="<?php echo $product->name; ?>" class="img img-fluid rounded" src="<?php echo base_url('assets/uploads/products/'. $product->picture_name); ?>" style="width: 1000px; max-height: 800px">
                                     <br>
                                     <br>
-                                    <?php echo ($product->stock > 0) ? $product->stock .' '. $product->product_unit: '<span class="text-danger"><em>Stok habis</em></span>'; ?> / Rp <?php echo format_rupiah($product->price); ?>
+                                    <?php echo ($product->stock > 0) ? $product->stock .' items / '. $product->weight .' gr' : '<span class="text-danger"><em>Stok habis</em></span>'; ?> / Rp <?php echo format_rupiah($product->price); ?>
                                 </div>
                                 
                             </div>

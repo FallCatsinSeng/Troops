@@ -122,7 +122,7 @@ class Products extends CI_Controller {
         $this->form_validation->set_rules('name', 'Nama produk', 'trim|required|min_length[4]|max_length[255]');
         $this->form_validation->set_rules('price', 'Harga produk', 'trim|required');
         $this->form_validation->set_rules('stock', 'Stok barang', 'required|numeric');
-        $this->form_validation->set_rules('unit', 'Satuan barang', 'required');
+        $this->form_validation->set_rules('weight', 'Berat barang', 'required|numeric');
         $this->form_validation->set_rules('description', 'Deskripsi produk', 'max_length[512]');
         
         if ($this->form_validation->run() == FALSE)
@@ -135,7 +135,7 @@ class Products extends CI_Controller {
             $category_id = $this->input->post('category_id');
             $price = $this->input->post('price');
             $stock = $this->input->post('stock');
-            $unit = $this->input->post('unit');
+            $weight = $this->input->post('weight');
             $desc = $this->input->post('description');
             $date = date('Y-m-d H:i:s');
 
@@ -195,7 +195,7 @@ class Products extends CI_Controller {
             $product['description'] = $desc;
             $product['price'] = $price;
             $product['stock'] = $stock;
-            $product['product_unit'] = $unit;
+            $product['weight'] = $weight;
             $product['picture_name'] = implode(',', $uploaded_files);
             $product['add_date'] = $date;
 
@@ -235,7 +235,7 @@ class Products extends CI_Controller {
         $this->form_validation->set_rules('name', 'Nama produk', 'trim|required|min_length[4]|max_length[255]');
         $this->form_validation->set_rules('price', 'Harga produk', 'trim|required');
         $this->form_validation->set_rules('stock', 'Stok barang', 'required|numeric');
-        $this->form_validation->set_rules('unit', 'Satuan barang', 'required');
+        $this->form_validation->set_rules('weight', 'Berat barang', 'required|numeric');
         $this->form_validation->set_rules('description', 'Deskripsi produk', 'max_length[512]');
         
         if ($this->form_validation->run() == FALSE)
@@ -246,93 +246,48 @@ class Products extends CI_Controller {
         else
         {
             $id = $this->input->post('id');
-            $data = $this->product->product_data($id);
-            $current_pictures = explode(',', $data->picture_name);
-
             $name = $this->input->post('name');
             $category_id = $this->input->post('category_id');
             $price = $this->input->post('price');
-            $discount = $this->input->post('price_discount');
             $stock = $this->input->post('stock');
-            $unit = $this->input->post('unit');
+            $weight = $this->input->post('weight');
             $desc = $this->input->post('description');
             $available = $this->input->post('is_available');
-            $date = date('Y-m-d H:i:s');
-
-            $config['upload_path'] = './assets/uploads/products/';
-            $config['allowed_types'] = 'jpg|png|jpeg';
-            $config['max_size'] = 2048;
-
-            $this->load->library('upload', $config);
-            $uploaded_files = array();
-
-            if (isset($_FILES['pictures']) && !empty($_FILES['pictures']['name'][0])) {
-                $files = $_FILES;
-                $count = count($_FILES['pictures']['name']);
-
-                if ($count < 2) {
-                    $this->session->set_flashdata('edit_product_flash', 'Minimal harus upload 2 gambar!');
-                    redirect('admin/products/edit/' . $id);
-                    return;
-                }
-
-                if ($count > 3) {
-                    $this->session->set_flashdata('edit_product_flash', 'Maksimal hanya 3 gambar yang diperbolehkan!');
-                    redirect('admin/products/edit/' . $id);
-                    return;
-                }
-
-                // Delete old images
-                foreach ($current_pictures as $old_image) {
-                    if (!empty($old_image)) {
-                        $file_path = './assets/uploads/products/' . $old_image;
-                        if (file_exists($file_path)) {
-                            unlink($file_path);
-                        }
-                    }
-                }
-
-                for($i = 0; $i < $count; $i++) {
-                    $_FILES['picture']['name'] = $files['pictures']['name'][$i];
-                    $_FILES['picture']['type'] = $files['pictures']['type'][$i];
-                    $_FILES['picture']['tmp_name'] = $files['pictures']['tmp_name'][$i];
-                    $_FILES['picture']['error'] = $files['pictures']['error'][$i];
-                    $_FILES['picture']['size'] = $files['pictures']['size'][$i];
-
-                    $config['file_name'] = time() . '_' . $i;
-                    $this->upload->initialize($config);
-
-                    if ($this->upload->do_upload('picture')) {
-                        $upload_data = $this->upload->data();
-                        $uploaded_files[] = $upload_data['file_name'];
-                    }
-                }
-
-                if (empty($uploaded_files)) {
-                    $this->session->set_flashdata('edit_product_flash', 'Gagal mengupload gambar!');
-                    redirect('admin/products/edit/' . $id);
-                    return;
-                }
-
-                $file_name = implode(',', $uploaded_files);
-            } else {
-                $file_name = $data->picture_name;
-            }
 
             $product['category_id'] = $category_id;
             $product['name'] = $name;
             $product['description'] = $desc;
             $product['price'] = $price;
-            $product['current_discount'] = $discount;
             $product['stock'] = $stock;
-            $product['product_unit'] = $unit;
-            $product['picture_name'] = $file_name;
-            $product['is_available'] = $available;
+            $product['weight'] = $weight;
+            $product['is_available'] = ($available) ? 1 : 0;
 
+            if (isset($_FILES['picture']) && $_FILES['picture']['name'] != '')
+            {
+                $data = $this->product->product_data($id);
+                $picture_name = $data->picture_name;
+
+                if (file_exists('./assets/uploads/products/'. $picture_name))
+                    unlink('./assets/uploads/products/'. $picture_name);
+                
+                $config['upload_path'] = './assets/uploads/products/';
+                $config['allowed_types'] = 'jpg|png|jpeg';
+                $config['max_size'] = 2048;
+                $config['file_name'] = time();
+        
+                $this->load->library('upload', $config);
+        
+                if ( $this->upload->do_upload('picture'))
+                {
+                    $upload_data = $this->upload->data();
+                    $product['picture_name'] = $upload_data['file_name'];
+                }
+            }
+            
             $this->product->edit_product($id, $product);
             $this->session->set_flashdata('edit_product_flash', 'Produk berhasil diperbarui!');
 
-            redirect('admin/products/view/'. $id);
+            redirect('admin/products/edit/'. $id);
         }
     }
 
@@ -340,71 +295,58 @@ class Products extends CI_Controller {
     {
         $action = $this->input->get('action');
 
-        switch ($action)
-        {
-            case 'delete_image' :
+        switch ($action) {
+            case 'delete_image':
                 $id = $this->input->post('id');
                 $data = $this->product->product_data($id);
-                $picture_name = $this->input->post('picture_name');
-                
-                $pictures = explode(',', $data->picture_name);
-                if (count($pictures) <= 2) {
-                    $response = array('code' => 400, 'message' => 'Minimal harus ada 2 gambar!');
-                } else {
-                    $file = './assets/uploads/products/'. $picture_name;
-                    
-                    if (file_exists($file) && is_readable($file) && unlink($file)) {
-                        // Remove from array and rejoin
-                        $pictures = array_filter($pictures, function($img) use ($picture_name) {
-                            return $img != $picture_name;
-                        });
-                        $new_pictures = implode(',', $pictures);
-                        
-                        $this->product->update_product_image($id, $new_pictures);
+                $picture_name = $data->picture_name;
+
+                if (file_exists('./assets/uploads/products/'. $picture_name)) {
+                    if (unlink('./assets/uploads/products/'. $picture_name)) {
+                        $this->product->delete_image($id);
                         $response = array('code' => 204, 'message' => 'Gambar berhasil dihapus');
-                    } else {
-                        $response = array('code' => 200, 'message' => 'Terjadi kesalahan saat menghapus gambar');
+                    }
+                    else {
+                        $response = array('code' => 200, 'message' => 'Gagal menghapus gambar');
                     }
                 }
-            break;
-            case 'delete_product' :
+                
+                $this->output
+                    ->set_content_type('application/json')
+                    ->set_output(json_encode($response));
+                break;
+            case 'delete_product':
                 $id = $this->input->post('id');
                 $data = $this->product->product_data($id);
-                $pictures = explode(',', $data->picture_name);
-                
-                foreach ($pictures as $picture) {
-                    if (!empty($picture)) {
-                        $file = './assets/uploads/products/'. $picture;
-                        if (file_exists($file) && is_readable($file)) {
-                            unlink($file);
-                        }
-                    }
+                $picture_name = $data->picture_name;
+                $this->product->delete_product($id);
+
+                if (file_exists('./assets/uploads/products/'. $picture_name)) {
+                    unlink('./assets/uploads/products/'. $picture_name);
                 }
 
-                $this->product->delete_product($id);
-                $response = array('code' => 204);
-            break;
-        }
+                $this->order->delete_all_items($id);
 
-        $response = json_encode($response);
-        $this->output->set_content_type('application/json')
-            ->set_output($response);
+                $response = array('code' => 204);
+
+                $this->output
+                    ->set_content_type('application/json')
+                    ->set_output(json_encode($response));
+                break;
+        }
     }
 
     public function view($id = 0)
     {
         if ( $this->product->is_product_exist($id))
         {
-            $data = $this->product->product_data($id);
-
-            $params['title'] = $data->name .' | SKU '. $data->sku;
-
-            $product['product'] = $data;
-            $product['flash'] = $this->session->flashdata('product_flash');
-            $product['orders'] = $this->order->product_ordered($id);
+            $params['title'] = 'Review Produk';
+            $params['product'] = $this->product->product_data($id);
+            $params['flash'] = $this->session->flashdata('view_product_flash');
+            $params['orders'] = $this->order->product_ordered($id);
 
             $this->load->view('header', $params);
-            $this->load->view('products/view', $product);
+            $this->load->view('products/view', $params);
             $this->load->view('footer');
         }
         else
@@ -415,12 +357,10 @@ class Products extends CI_Controller {
 
     public function category()
     {
-        $params['title'] = 'Kelola Kategori Produk';
-
-        $categories['categories'] = $this->product->get_all_categories();
+        $params['title'] = 'Kelola Kategori';
 
         $this->load->view('header', $params);
-        $this->load->view('products/category', $categories);
+        $this->load->view('products/category');
         $this->load->view('footer');
     }
 
@@ -428,47 +368,107 @@ class Products extends CI_Controller {
     {
         $action = $this->input->get('action');
 
-        switch ($action) {
+        switch ($action)
+        {
             case 'list' :
-                $categories['data'] = $this->product->get_all_categories();
-                $response = $categories;
-            break;
+                $cats = $this->product->get_all_categories();
+                $n = 1;
+
+                foreach ($cats as $cat)
+                {
+                    $cat->no = $n;
+                    $n++;
+                }
+
+                $category['data'] = $cats;
+                $this->output
+                    ->set_content_type('application/json')
+                    ->set_output(json_encode($category));
+                break;
+            case 'add_category' :
+                $this->form_validation->set_error_delimiters('<div class="text-danger">', '</div>');
+                $this->form_validation->set_rules('name', 'Nama', 'required|max_length[100]');
+
+                if ($this->form_validation->run() == FALSE)
+                {
+                    $response = array(
+                        'code' => 400,
+                        'errors' => array(
+                            'name' => form_error('name')
+                        )
+                    );
+
+                    $this->output
+                        ->set_status_header(400)
+                        ->set_content_type('application/json')
+                        ->set_output(json_encode($response));
+                }
+                else
+                {
+                    $name = $this->input->post('name');
+
+                    $this->product->add_new_category($name);
+                    $response = array('code' => 201);
+
+                    $this->output
+                        ->set_content_type('application/json')
+                        ->set_output(json_encode($response));
+                }
+
+                break;
+            case 'delete_category' :
+                $id = $this->input->post('id');
+                $this->product->delete_category($id);
+
+                $response = array('code' => 204);
+                $this->output
+                    ->set_content_type('application/json')
+                    ->set_output(json_encode($response));
+                break;
             case 'view_data' :
                 $id = $this->input->get('id');
 
                 $data['data'] = $this->product->category_data($id);
-                $response = $data;
-            break;
-            case 'add_category' :
-                $name = $this->input->post('name');
-
-                $this->product->add_category($name);
-                $categories['data'] = $this->product->get_all_categories();
-                $response = $categories;
-            break;
-            case 'delete_category' :
-                $id = $this->input->post('id');
-
-                $this->product->delete_category($id);
-                $response = array('code' => 204, 'message' => 'Kategori berhasil dihapus!');
-            break;
+                $this->output
+                    ->set_content_type('application/json')
+                    ->set_output(json_encode($data));
+                break;
             case 'edit_category' :
-                $id = $this->input->post('id');
-                $name = $this->input->post('name');
+                $this->form_validation->set_error_delimiters('<div class="text-danger">', '</div>');
+                $this->form_validation->set_rules('name', 'Nama', 'required|max_length[100]');
 
-                $this->product->edit_category($id, $name);
-                $response = array('code' => 201, 'message' => 'Kategori berhasil diperbarui');
-            break;
+                if ($this->form_validation->run() == FALSE)
+                {
+                    $response = array(
+                        'code' => 400,
+                        'errors' => array(
+                            'name' => form_error('name')
+                        )
+                    );
+
+                    $this->output
+                        ->set_status_header(400)
+                        ->set_content_type('application/json')
+                        ->set_output(json_encode($response));
+                }
+                else
+                {
+                    $id = $this->input->post('id');
+                    $name = $this->input->post('name');
+                    $this->product->edit_category($id, $name);
+
+                    $response = array('code' => 201);
+                    $this->output
+                        ->set_content_type('application/json')
+                        ->set_output(json_encode($response));
+                }
+                break;
         }
-
-        $response = json_encode($response);
-        $this->output->set_content_type('application/json')
-            ->set_output($response);
     }
 
     public function coupons()
     {
-        $params['title'] = 'Kelola Kupon Belanja';
+        $params['title'] = 'Kelola Kupon';
 
         $this->load->view('header', $params);
         $this->load->view('products/coupons');
@@ -478,14 +478,15 @@ class Products extends CI_Controller {
     public function _get_coupon_list()
     {
         $coupons = $this->product->get_all_coupons();
-        $n = 0;
+        $n = 1;
 
         foreach ($coupons as $coupon)
         {
-            $coupons[$n]->credit = 'Rp '. format_rupiah($coupon->credit);
-            $coupons[$n]->start_date = get_formatted_date($coupon->start_date);
-            $coupons[$n]->is_active = ($coupon->is_active == 1) ? ((strtotime($coupon->expired_date) < time()) ? 'Sudah kadaluarsa' : 'Masih berlaku') : 'Tidak aktif';
-            $coupons[$n]->expired_date = get_formatted_date($coupon->expired_date);
+            $coupon->no = $n;
+            $coupon->credit = 'Rp'. format_rupiah($coupon->credit);
+            $coupon->start_date = get_formatted_date($coupon->start_date);
+            $coupon->expired_date = get_formatted_date($coupon->expired_date);
+            $coupon->is_active = ($coupon->is_active == 1) ? 'Aktif' : 'Tidak aktif';
 
             $n++;
         }
@@ -499,68 +500,139 @@ class Products extends CI_Controller {
 
         switch ($action) {
             case 'coupon_list' :
-                $coupons['data'] = $this->_get_coupon_list();
+                $coupons['data'] = $this->product->get_all_coupons();
 
-                $response = $coupons;
-            break;
-            case 'view_data' :
-                $id = $this->input->get('id');
-
-                $data['data'] = $this->product->coupon_data($id);
-                $response = $data;
-            break;
+                $this->output
+                    ->set_content_type('application/json')
+                    ->set_output(json_encode($coupons));
+                break;
             case 'add_coupon' :
-                $name = $this->input->post('name');
-                $code = $this->input->post('code');
-                $credit = $this->input->post('credit');
-                $start = $this->input->post('start_date');
-                $end = $this->input->post('expired_date');
+                $this->form_validation->set_error_delimiters('', '');
+                $this->form_validation->set_rules('name', 'Nama', 'required|max_length[255]');
+                $this->form_validation->set_rules('code', 'Kode', 'required|max_length[255]|is_unique[coupons.code]');
+                $this->form_validation->set_rules('credit', 'Potongan', 'required|numeric');
+                $this->form_validation->set_rules('start_date', 'Tanggal mulai', 'required');
+                $this->form_validation->set_rules('expired_date', 'Tanggal kadaluarsa', 'required');
 
-                $coupon = array(
-                    'name' => $name,
-                    'code' => $code,
-                    'credit' => $credit,
-                    'start_date' => date('Y-m-d', strtotime($start)),
-                    'expired_date' => date('Y-m-d', strtotime($end))
-                );
+                if ($this->form_validation->run() == FALSE)
+                {
+                    $response = array(
+                        'code' => 400,
+                        'errors' => array(
+                            'name' => form_error('name'),
+                            'code' => form_error('code'),
+                            'credit' => form_error('credit'),
+                            'start_date' => form_error('start_date'),
+                            'expired_date' => form_error('expired_date')
+                        )
+                    );
 
-                $this->product->add_coupon($coupon);
-                $coupons['data'] = $this->_get_coupon_list();
-            
-                $response = $coupons;
-            break;
+                    $this->output
+                        ->set_status_header(400)
+                        ->set_content_type('application/json')
+                        ->set_output(json_encode($response));
+                }
+                else
+                {
+                    $name = $this->input->post('name');
+                    $code = $this->input->post('code');
+                    $credit = $this->input->post('credit');
+                    $start_date = $this->input->post('start_date');
+                    $expired_date = $this->input->post('expired_date');
+
+                    $data = array(
+                        'name' => $name,
+                        'code' => $code,
+                        'credit' => $credit,
+                        'start_date' => $start_date,
+                        'expired_date' => $expired_date,
+                        'is_active' => 1
+                    );
+
+                    $this->product->add_coupon($data);
+                    $response = array(
+                        'code' => 200,
+                        'data' => $data);
+
+                    $this->output
+                        ->set_content_type('application/json')
+                        ->set_output(json_encode($response));
+                }
+                break;
             case 'delete_coupon' :
                 $id = $this->input->post('id');
-
                 $this->product->delete_coupon($id);
-                $response = array('code' => 204, 'message' => 'Kupon berhasil dihapus!');
-            break;
+                
+                $response = array('code' => 204);
+                $this->output
+                    ->set_content_type('application/json')
+                    ->set_output(json_encode($response));
+                break;
+            case 'view_data' :
+                $id = $this->input->get('id');
+                $data['data'] = $this->product->coupon_data($id);
+
+                $this->output
+                    ->set_content_type('application/json')
+                    ->set_output(json_encode($data));
+                break;
             case 'edit_coupon' :
                 $id = $this->input->post('id');
-                $name = $this->input->post('name');
-                $code = $this->input->post('code');
-                $credit = $this->input->post('credit');
-                $start = $this->input->post('start_date');
-                $end = $this->input->post('expired_date');
-                $active = $this->input->post('is_active');
+                $this->form_validation->set_error_delimiters('', '');
+                $this->form_validation->set_rules('name', 'Nama', 'required|max_length[255]');
+                $this->form_validation->set_rules('code', 'Kode', 'required|max_length[255]');
+                $this->form_validation->set_rules('credit', 'Potongan', 'required|numeric');
+                $this->form_validation->set_rules('start_date', 'Tanggal mulai', 'required');
+                $this->form_validation->set_rules('expired_date', 'Tanggal kadaluarsa', 'required');
 
-                $coupon = array(
-                    'name' => $name,
-                    'code' => $code,
-                    'credit' => $credit,
-                    'start_date' => date('Y-m-d', strtotime($start)),
-                    'expired_date' => date('Y-m-d', strtotime($end)),
-                    'is_active' => $active
-                );
+                if ($this->form_validation->run() == FALSE)
+                {
+                    $response = array(
+                        'code' => 400,
+                        'errors' => array(
+                            'name' => form_error('name'),
+                            'code' => form_error('code'),
+                            'credit' => form_error('credit'),
+                            'start_date' => form_error('start_date'),
+                            'expired_date' => form_error('expired_date')
+                        )
+                    );
 
-                $this->product->edit_coupon($id, $coupon);
-                $response = array('code' => 201, 'message' => 'Kupon berhasil diperbarui');
-            break;
+                    $this->output
+                        ->set_status_header(400)
+                        ->set_content_type('application/json')
+                        ->set_output(json_encode($response));
+                }
+                else
+                {
+                    $name = $this->input->post('name');
+                    $code = $this->input->post('code');
+                    $credit = $this->input->post('credit');
+                    $start_date = $this->input->post('start_date');
+                    $expired_date = $this->input->post('expired_date');
+                    $is_active = ($this->input->post('is_active')) ? 1 : 0;
+
+                    $data = array(
+                        'name' => $name,
+                        'code' => $code,
+                        'credit' => $credit,
+                        'start_date' => $start_date,
+                        'expired_date' => $expired_date,
+                        'is_active' => $is_active
+                    );
+
+                    $this->product->edit_coupon($id, $data);
+                    $response = array(
+                        'code' => 201,
+                        'data' => $data
+                    );
+
+                    $this->output
+                        ->set_content_type('application/json')
+                        ->set_output(json_encode($response));
+                }
+                break;
         }
-
-        $response = json_encode($response);
-        $this->output->set_content_type('application/json')
-            ->set_output($response);
     }
 }
 

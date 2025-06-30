@@ -1,6 +1,14 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 ?>
+<style>
+.checklist-info a,
+.checklist-info h5,
+.checklist-info small,
+.list-group-item .col h4 a {
+    color: #000 !important;
+}
+</style>
 <!-- Header -->
 <div class="header bg-primary pb-6">
     <div class="container-fluid">
@@ -234,26 +242,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <h5 class="h3 mb-0">Pembayaran menunggu konfirmasi</h5>
                 </div>
                 <!-- Card body -->
-                <div class="card-body">
+                <div class="card-body p-0">
                     <!-- List group -->
-                    <ul class="list-group list-group-flush list my--3">
+                    <ul class="list-group list-group-flush" data-toggle="checklist">
                         <?php foreach ($payments as $payment) : ?>
-                        <li class="list-group-item px-0">
-                            <div class="row align-items-center">
-                                <div class="col-auto">
-                                    <!-- Avatar -->
-                                    <a href="<?php echo site_url('admin/payments/users/' . $payment->user_id); ?>"
-                                        class="avatar rounded-circle">
-                                        <img alt="Image placeholder"
-                                            src="<?php echo base_url('assets/uploads/users/' . $payment->profile_picture); ?>">
-                                    </a>
-                                </div>
-                                <div class="col">
-                                    <h5>Order #<?php echo $payment->order_number; ?></h5>
-                                    <div>
-                                        Rp
-                                        <?php echo format_rupiah($payment->payment_price); ?>
-                                    </div>
+                        <li class="checklist-entry list-group-item flex-column align-items-start py-4 px-4">
+                            <div class="checklist-item checklist-item-info">
+                                <div class="checklist-info">
+                                    <h5 class="checklist-title mb-0">
+                                        <a href="<?php echo site_url('admin/payments/view/'. $payment->id); ?>">Order #<?php echo $payment->order_number; ?></a>
+                                    </h5>
+                                    <small>an. <?php echo $payment->name; ?> | Rp <?php echo format_rupiah($payment->payment_price); ?></small>
                                 </div>
                             </div>
                         </li>
@@ -283,27 +282,52 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                             <tr>
-                                <th scope="col">ID</th>
-                                <th scope="col">Nama</th>
-                                <th scope="col">Harga</th>
+                                <th scope="col">Produk</th>
+                                <th scope="col">Kategori</th>
+                                <th scope="col" class="sort" data-sort="status">Harga</th>
                                 <th scope="col">Stok</th>
+                                <th scope="col" class="sort" data-sort="completion">Berat</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="list">
                             <?php foreach ($products as $product) : ?>
                             <tr>
-                                <th scope="col">
-                                    <?php echo $product->id; ?>
+                                <th scope="row">
+                                    <div class="media align-items-center">
+                                        <a href="#" class="avatar rounded-circle mr-3">
+                                            <img alt="Image placeholder" src="<?php echo base_url('assets/uploads/products/'. $product->picture_name); ?>">
+                                        </a>
+                                        <div class="media-body">
+                                            <span class="name mb-0 text-sm"><?php echo $product->name; ?></span>
+                                        </div>
+                                    </div>
                                 </th>
-                                <td>
-                                    <?php echo $product->name; ?>
+                                <td class="budget">
+                                <?php echo $product->category_name; ?>
                                 </td>
                                 <td>
-                                    Rp <?php echo format_rupiah($product->price); ?>
+                                    <span class="badge badge-dot mr-4">
+                                        <i class="bg-warning"></i>
+                                        <span class="status">Rp <?php echo format_rupiah($product->price); ?></span>
+                                    </span>
                                 </td>
                                 <td>
-                                    <?php echo $product->stock; ?>
-                                    <?php echo $product->product_unit; ?>
+                                <?php echo ($product->stock > 0) ? $product->stock : '<span class="text-danger">Habis</span>'; ?>
+                                </td>
+                                <td>
+                                    <?php echo $product->weight; ?> gr
+                                </td>
+                                <td class="text-right">
+                                    <div class="dropdown">
+                                        <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                            <a class="dropdown-item" href="<?php echo site_url('admin/products/view/'. $product->id); ?>">Lihat</a>
+                                            <a class="dropdown-item" href="<?php echo site_url('admin/products/edit/'. $product->id); ?>">Ubah</a>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                             <?php endforeach; ?>

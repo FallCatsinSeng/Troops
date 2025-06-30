@@ -143,7 +143,14 @@ class Product_model extends CI_Model {
 
     public function latest()
     {
-        return $this->db->where('is_available', 1)->order_by('add_date', 'DESC')->limit(5)->get('products')->result();
+        return $this->db->select('p.*, pc.name AS category_name')
+            ->from('products p')
+            ->join('product_category pc', 'p.category_id = pc.id', 'left')
+            ->where('p.is_available', 1)
+            ->order_by('p.add_date', 'DESC')
+            ->limit(5)
+            ->get()
+            ->result();
     }
 
     public function latest_categories()

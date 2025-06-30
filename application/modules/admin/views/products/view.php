@@ -92,10 +92,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <td><b><?php echo anchor('admin/products?category_id='. $product->category_id, $product->category_name); ?></b></td>
                     </tr>
                     <tr>
-                        <td>Stok / Satuan</td>
+                        <td>Stok / Berat</td>
                         <td>:</td>
                         <td><b>
-                            <?php echo ($product->stock > 0) ? $product->stock .' '. $product->product_unit : 'Stok habis'; ?>
+                            <?php echo ($product->stock > 0) ? $product->stock .' items / '. $product->weight .' gr' : 'Stok habis'; ?>
                         </b></td>
                     </tr>
                     <tr>

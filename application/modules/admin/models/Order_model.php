@@ -98,7 +98,7 @@ class Order_model extends CI_Model
     public function product_ordered($id)
     {
         $orders = $this->db->query("
-            SELECT oi.*, o.id as order_id, o.order_number, o.order_date, c.name, p.product_unit AS unit
+            SELECT oi.*, o.id as order_id, o.order_number, o.order_date, c.name, p.weight
             FROM order_items oi
             JOIN orders o
 	            ON o.id = oi.order_id

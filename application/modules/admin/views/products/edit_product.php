@@ -103,9 +103,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   </div>
                   <div class="col-6">
                     <div class="form-group">
-                      <label class="form-control-label" for="unit">Satuan:</label>
-                      <input type="text" name="unit" value="<?php echo set_value('unit', $product->product_unit); ?>" class="form-control" id="unit">
-                      <?php echo form_error('unit'); ?>
+                      <label class="form-control-label" for="unit">Berat (gram):</label>
+                      <input type="text" name="weight" value="<?php echo set_value('weight', $product->weight); ?>" class="form-control" id="unit">
+                      <?php echo form_error('weight'); ?>
                     </div>
                   </div>
                 </div>

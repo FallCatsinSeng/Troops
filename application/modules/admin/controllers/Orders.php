@@ -123,6 +123,7 @@ class Orders extends CI_Controller
             $banks = json_decode(get_settings('payment_banks'));
             $banks = (array) $banks;
 
+            $params['order_data'] = $data;
             $params['data'] = $data;
             $params['items'] = $items;
             $params['delivery_data'] = json_decode($data->delivery_data);

@@ -234,29 +234,32 @@ if (!function_exists('get_product_image')) {
 if (!function_exists('get_order_status')) {
     function get_order_status($status, $payment)
     {
+        $status_text = '';
         if ($payment == 1) {
             // Bank
             if ($status == 1)
-                return 'Menunggu pembayaran';
+                $status_text = 'Menunggu pembayaran';
             else if ($status == 2)
-                return 'Dalam proses';
+                $status_text = 'Dalam proses';
             else if ($status == 3)
-                return 'Dalam pengiriman';
+                $status_text = 'Dalam pengiriman';
             else if ($status == 4)
-                return 'Selesai';
+                $status_text = 'Selesai';
             else if ($status == 5)
-                return 'Dibatalkan';
+                $status_text = 'Dibatalkan';
         } else if ($payment == 2) {
             //COD
             if ($status == 1)
-                return 'Dalam proses';
+                $status_text = 'Dalam proses';
             else if ($status == 2)
-                return 'Dalam pengiriman';
+                $status_text = 'Dalam pengiriman';
             else if ($status == 3)
-                return 'Selesai';
+                $status_text = 'Selesai';
             else if ($status == 4)
-                return 'Dibatalkan';
+                $status_text = 'Dibatalkan';
         }
+
+        return '<span style="color: black;">'. $status_text .'</span>';
     }
 }
 

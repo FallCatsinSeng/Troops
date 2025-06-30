@@ -43,8 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <h3 style="color: #fff;"><?php echo $product->name; ?></h3>
                 <div class="w-100"></div>
                     <div class="col-md-12">
-                        <p style="color: #fff;"><?php echo $product->stock; ?>
-                            <?php echo $product->product_unit; ?></p>
+                        <p style="color: #fff;"><?php echo $product->stock; ?> items / <?php echo $product->weight; ?> gr</p>
                     </div>
                 <div class="rating d-flex">
                     <p class="text-left mr-4">
